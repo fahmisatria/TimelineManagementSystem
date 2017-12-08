@@ -1,0 +1,34 @@
+﻿ID_Divisi,Nama_Divisi,Ketua_Divisi,Bidang,Ketua_Bidang,Deskripsi_Divisi,E-mail_Ketua_Divisi
+KTW001,Ketua,Praditya Raudi,Ketua,Praditya Raudi,Ketua Acara Arkavidia,raudiradz@gmail.com
+SKJ002,Kesekjenan,Pratamamia Agung Prihatmaja,Kesekjenan,Pratamamia Agung Prihatmaja,Kesekjenan Arkavidia,apratamamia@gmail.com
+SKR003,Sekretaris 1,Aliyah Sausan Huwel,Kesekjenan,Pratamamia Agung Prihatmaja,Sekretaris 1 Arkavidia,Sausanhuwel@gmail.com
+SKR004,Sekretaris 2,Steffi Indrayani,Kesekjenan,Pratamamia Agung Prihatmaja,Sekretaris 2 Acara Arkavidia,steffiindrayani16@gmail.com
+BND005,Bendahara 1,Tessa Angela,Kesekjenan,Pratamamia Agung Prihatmaja,Bendahara 1 Acara Arkavidia,emmanuellatessaangela@gmail.com
+BND006,Bendahara 2,Iftitakhul Zakiah,Kesekjenan,Pratamamia Agung Prihatmaja,Bendahara 2 Acara Arkavidia,Iftitakhulzakiyah@gmail.com
+MSD007,MSDM,Fahmi Satria Aji,Kesekjenan,Pratamamia Agung Prihatmaja,MSDM Arkavidia,teemeezajee@gmail.com 
+FRS008,Fundraising,Theo Adhitya Sani W.,Fundraising,Theo Adhitya Sani W.,Ketua Bidang Fundraising,theo_asw@yahoo.com
+SPS009,Sponsorship,Rizky Faramita,Fundraising,Theo Adhitya Sani W.,Sponsorship Acara Arkavidia,rizky.faramitha@gmail.com
+DNS010,Danus,Mikhael Artur Darmakesuma,Fundraising,Theo Adhitya Sani W.,Danus Arkavidia,mikhael.artur.d@gmail.com 
+EKS011,Eksternal,Wiega Sonora,Eksternal,Wiega Sonora,Ketua Bidang Eksternal,wiegasonora@gmail.com
+PRL012,Public Relations,Radiyya Dwisaputra,Eksternal,Wiega Sonora,Public Relations Acara Arkavidia,radiyyasaputra@gmail.com
+LOF013,LO,Rizki Ihza Parama,Eksternal,Wiega Sonora,LO Arkavidia,rizki.ihza@gmail.com
+DLG014,Delegasi,Adya Naufal Fikri,Eksternal,Wiega Sonora,Delegasi Arkavidia,13515130@std.stei.itb.ac.id
+OPS015,Operasional,Alif Bhaskoro,Operasional,Alif Bhaskoro,Operasional Acara Arkavidia,Alifbhaskoro@gmail.com
+LGS016,Logistik,Martin Lutta Putra,Operasional,Alif Bhaskoro,Logistik Arkavidia,sukaberkhayal@gmail.com
+PRD017,Produksi,Kevin Liem,Operasional,Alif Bhaskoro,Produksi Acara Arkavidia,kevin18.liem@gmail.com
+DKR018,Dekorasi,Audry Nyonata,Operasional,Alif Bhaskoro,Dekorasi Acara Arkavidia,audrynyonata@gmail.com
+PRZ019,Perizinan,Kharis Isriyanto,Operasional,Alif Bhaskoro,Perizinan Acara Arkavidia,kharisisriyant@gmail.com
+AKT020,Akomtrans,Irene Edria Devina,Operasional,Alif Bhaskoro,Akomtrans Arkavidia,ireneedriadr@gmail.com
+LMB021,Lomba,Muhammad Isham Azmansyah F.,Lomba,Muhammad Isham Azmansyah F,Ketua Bidang Lomba,i@adimaja.com
+CTF022,Capture The Flag,Kevin Supendi,Lomba,Muhammad Isham Azmansyah F,Capture The Flag Acara Arkavidia,13514094@std.stei.itb.ac.id
+PCS023,Programming Contest,Jauhar Arifin,Lomba,Muhammad Isham Azmansyah F,Programming Contest Acara Arkavidia,jauhararifin10@gmail.com
+TCV024,Technovation ,Bethea Zia Davida,Lomba,Muhammad Isham Azmansyah F,Technovation Arkavidia,betheazia17@gmail.com
+HCK025,Hackaton,Azis Adi Kuncoro,Lomba,Muhammad Isham Azmansyah F,Hackaton Arkavidia,azisadikuncoro@gmail.com
+CAM026,Marketing & Creative,Joshua Atmadja,Marketing & Creative,Joshua Atmadja,Marketing & Creative Acara Arkavidia,joshuatmadja@gmail.com
+DSN027,Desain,Atika Azzahra,Marketing & Creative,Joshua Atmadja,Desain Acara Arkavidia,atikazzahraa@gmail.com 
+PBD028,Publikasi & Dokumentasi,Aya Aurora Rimbamorani',Marketing & Creative,Joshua Atmadja,Publikasi & Dokumentasi Arkavidia,aya.aurora25@gmail.com
+ITT029,IT,Muhammad Reza Ramadhan,Marketing & Creative,Joshua Atmadja,IT Arkavidia,rezaramadhan.m@gmail.com 
+ACR030,Acara,Rezha Kusuma A,Acara,Rezha Kusuma A,Ketua Bidang Acara ,rezha.kusuma@gmail.com
+SMR031,Seminar,Teo Wijayarto,Acara,Rezha Kusuma A,Seminar Acara Arkavidia,18215004@std.stei.itb.ac.id
+EXP032,Expo,Arief Septian Nurhada,Acara,Rezha Kusuma A,Expo Acara Arkavidia,ariefseptian7@gmail.com
+PEG033,Pre Event & Gala Dinner,Adrian Hartanto P,Acara,Rezha Kusuma A,Pre Event & Gala Dinner Acara Arkavidia,adrianhp100797@gmail.com
