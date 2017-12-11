@@ -47,3 +47,4 @@ type DataKejaranByTanggalTenggat struct {
 	Tanggal_Mulai string
 	Kontak string
 }
+

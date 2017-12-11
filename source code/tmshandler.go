@@ -59,7 +59,7 @@ func GetKejaranByNamaDivisi(rps http.ResponseWriter, rqs *http.Request, Nama_Div
 	//Inisialisasi Data Kejaran Divisi
 	divisi := DataKejaranByDivisi{}
 	//Query untuk GetKejaranByNamaDivisi
-	baris, err := dbms.Query("select divisi.Nama_Divisi, pekerjaan.Nama_Pekerjaan, memiliki.Penanggung_Jawab, memiliki.Tanggal_Tenggat, memiliki.Kontak from memiliki inner join divisi, pekerjaan where memiliki.ID_Divisi = divisi.ID_Divisi and memiliki.ID_Pekerjaan = pekerjaan.ID_Pekerjaan and Nama_Divisi like?", Nama_Divisi)
+	baris, err := dbms.Query("select divisi.Nama_Divisi, pekerjaan.Nama_Pekerjaan, memiliki.Penanggung_Jawab, memiliki.Tanggal_Tenggat, memiliki.Kontak from memiliki inner join divisi, pekerjaan where memiliki.ID_Divisi = divisi.ID_Divisi and memiliki.ID_Pekerjaan = pekerjaan.ID_Pekerjaan and divisi.Nama_Divisi like?", "%"+Nama_Divisi+"%")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -92,7 +92,7 @@ func GetKejaranByPenanggungJawab(rps http.ResponseWriter, rqs *http.Request, Pen
 	//Inisialisasi Data Kejaran By PenanggungJawab
 	pjb := DataKejaranByPenanggungJawab{}
 	//Query untuk GetKejaranByNamaDivisi
-	baris, err := dbms.Query("select divisi.Nama_Divisi, pekerjaan.Nama_Pekerjaan, divisi.Ketua_Divisi, divisi.Bidang, divisi.Ketua_Bidang, memiliki.Tanggal_Tenggat, memiliki.Kontak from memiliki inner join divisi, pekerjaan where memiliki.ID_Divisi = divisi.ID_Divisi and memiliki.ID_Pekerjaan = pekerjaan.ID_Pekerjaan and memiliki.Penanggung_Jawab like?", Penanggung_Jawab)
+	baris, err := dbms.Query("select divisi.Nama_Divisi, pekerjaan.Nama_Pekerjaan, divisi.Ketua_Divisi, divisi.Bidang, divisi.Ketua_Bidang, memiliki.Tanggal_Tenggat, memiliki.Kontak from memiliki inner join divisi, pekerjaan where memiliki.ID_Divisi = divisi.ID_Divisi and memiliki.ID_Pekerjaan = pekerjaan.ID_Pekerjaan and memiliki.Penanggung_Jawab like?", "%"+Penanggung_Jawab+"%")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -126,7 +126,7 @@ func GetKejaranByTanggalTenggat(rps http.ResponseWriter, rqs *http.Request, Tang
 	//Inisialisasi Data Kejaran By Tanggal Tenggat
 	tggltgt := DataKejaranByTanggalTenggat{}
 	//Query untuk GetKejaranByNamaDivisi
-	baris, err := dbms.Query("select divisi.Nama_Divisi, pekerjaan.Nama_Pekerjaan, divisi.Ketua_Divisi, divisi.Bidang, divisi.Ketua_Bidang, pekerjaan.Tanggal_Mulai, memiliki.Kontak from memiliki inner join divisi, pekerjaan where memiliki.ID_Divisi = divisi.ID_Divisi and memiliki.ID_Pekerjaan = pekerjaan.ID_Pekerjaan and memiliki.Tanggal_Tenggat like?", Tanggal_Tenggat)
+	baris, err := dbms.Query("select divisi.Nama_Divisi, pekerjaan.Nama_Pekerjaan, divisi.Ketua_Divisi, divisi.Bidang, divisi.Ketua_Bidang, pekerjaan.Tanggal_Mulai, memiliki.Kontak from memiliki inner join divisi, pekerjaan where memiliki.ID_Divisi = divisi.ID_Divisi and memiliki.ID_Pekerjaan = pekerjaan.ID_Pekerjaan and memiliki.Tanggal_Tenggat like?", "%"+Tanggal_Tenggat+"%")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)

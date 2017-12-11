@@ -15,50 +15,33 @@ import (
 
 func main() {
 	port := 8181 //port yang digunakan untuk menjalankan web service
-	// Handle Function untuk menjalankan fungsionalitas GETKejaranDivisiByNamaDivisi
-	http.HandleFunc("/divisimanagementsystem/", func (rps http.ResponseWriter, rqs *http.Request) {
+	// Handle Function untuk menjalankan fungsionalitas GETKejaranDivisi By Nama Divisi, Penanggung Jawab, dan Tanggal_Tenggat
+	http.HandleFunc("/timelinemanagementsystem/", func (rps http.ResponseWriter, rqs *http.Request) {
 		switch rqs.Method {
 			//Method GET
 			case "GET":
-				sx:=rqs.URL.Query().Get("Nama_Divisi") //Client request dengan masukan Nama_Divisi
-				if (sx != "") {
-					GetKejaranByNamaDivisi(rps,rqs,sx) //Mendapatkan kejaran berdasarkan nama divisi
-				} else {
-					GetAllKejaran(rps,rqs) //Mendapatkan seluruh kejaran masing-masing divisi
-				}
-			default:
-				http.Error(rps, "invalid", 405) //mengirimkan respons error
-
-		}
-	})
-
-	// Handle Function untuk menjalankan fungsionalitas GETKejaranDivisiByPenanggungJawab
-	http.HandleFunc("/penanggungjawabdivisi/", func (rps http.ResponseWriter, rqs *http.Request) {
-		switch rqs.Method {
-			//Method GET
-			case "GET":
-				sx:=rqs.URL.Query().Get("Penanggung_Jawab") //Client request dengan masukan Nama_Divisi
-				if (sx != "") {
-					GetKejaranByPenanggungJawab(rps,rqs,sx) //Mendapatkan kejaran berdasarkan nama divisi
-				} else {
-					GetAllKejaran(rps,rqs) //Mendapatkan seluruh kejaran masing-masing divisi
-				}
-			default:
-				http.Error(rps, "invalid", 405) //mengirimkan respons error
-
-		}
-	})
-
-	// Handle Function untuk menjalankan fungsionalitas GETKejaranDivisiByTanggalTenggat
-		http.HandleFunc("/tanggaltenggatkejaran/", func (rps http.ResponseWriter, rqs *http.Request) {
-		switch rqs.Method {
-			//Method GET
-			case "GET":
-				sx:=rqs.URL.Query().Get("Tanggal_Tenggat") //Client request dengan masukan Nama_Divisi
-				if (sx != "") {
-					GetKejaranByTanggalTenggat(rps,rqs,sx) //Mendapatkan kejaran berdasarkan nama divisi
-				} else {
-					GetAllKejaran(rps,rqs) //Mendapatkan seluruh kejaran masing-masing divisi
+				//Mendapatkan Kejaran Divisi berdasarkan nama divisi
+				if rqs.URL.Query().Get("Nama_Divisi") != ""{
+					Nama_Divisi := rqs.URL.Query().Get("Nama_Divisi")
+					GetKejaranByNamaDivisi(rps,rqs,Nama_Divisi)
+					//Cek di bash
+					log.Printf("Masukan anda telah diterima, masukan:%s",Nama_Divisi)
+				//Mendapatkan Kejaran Divisi berdasarkan penanggung jawab 
+				}else if rqs.URL.Query().Get("Penanggung_Jawab") != ""{
+					Penanggung_Jawab := rqs.URL.Query().Get("Penanggung_Jawab")
+					GetKejaranByPenanggungJawab(rps,rqs,Penanggung_Jawab)
+					//Cek di bash
+					log.Printf("Masukan anda telah diterima, masukan:%s",Penanggung_Jawab)
+				//Mendapatkan Kejaran Divisi berdasarkan Tanggal Tenggat suatu pekerjaan
+				}else if rqs.URL.Query().Get("Tanggal_Tenggat") != ""{
+					Tanggal_Tenggat := rqs.URL.Query().Get("Tanggal_Tenggat")
+					GetKejaranByTanggalTenggat(rps,rqs,Tanggal_Tenggat)
+					//Cek di bash
+					log.Printf("Masukan anda telah diterima, masukan:%s", Tanggal_Tenggat)
+				//Mendapatkan Seluruh Kejaran Divisi
+				}else {
+					GetAllKejaran(rps,rqs)
+					log.Printf("Berhasil")
 				}
 			default:
 				http.Error(rps, "invalid", 405) //mengirimkan respons error
