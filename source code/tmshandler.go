@@ -195,3 +195,29 @@ func PostMemilikiPekerjaan (rps http.ResponseWriter, rqs *http.Request) {
 	_,err = baris.Exec(memilikipekerjaan.ID_Divisi, memilikipekerjaan.ID_Pekerjaan, memilikipekerjaan.Nama_Divisi, memilikipekerjaan.Tanggal_Tenggat, memilikipekerjaan.Penanggung_Jawab,memilikipekerjaan.Deskripsi_Pekerjaan, memilikipekerjaan.Kontak)
 }
 
+//Fungsi Untuk melakukan update tanggal_tenggat suatu pekerjaan divisi
+func UpdateTanggalTenggat(rps http.ResponseWriter, rqs *http.Request, ID_Pekerjaan string) {
+	var memilikipekerjaan MemilikiPekerjaan
+	idpekerjaan := ID_Pekerjaan
+	memilikipekerjaandecoder := json.NewDecoder(rqs.Body)
+	err := memilikipekerjaandecoder.Decode(&memilikipekerjaan)
+	if err != nil {
+		log.Fatal(err)
+	}	
+	defer rqs.Body.Close()
+	//Membuka koneksi ke database "timelinemanagementsystem"
+	dbms, err := sql.Open("mysql",
+			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+	//Error Handling
+	if err != nil{
+		log.Fatal(err)
+	}
+	//Query untuk melakukan update tanggal tenggat pada tabel memiliki
+	baris,err := dbms.Prepare("UPDATE memiliki SET Tanggal_Tenggat = ? where ID_Pekerjaan like ?")
+	if err != nil {
+		log.Fatal(err)
+	}
+	_,err = baris.Exec(memilikipekerjaan.Tanggal_Tenggat, idpekerjaan)
+
+}
+

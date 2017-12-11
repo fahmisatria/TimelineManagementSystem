@@ -69,6 +69,16 @@ func main() {
 			http.Error(rps, "invalid", 405) //mengirimkan respons error
 		}
 	})
+	//Handle Function untuk melakukan method PUT 
+	http.HandleFunc("/updatetanggaltenggat/", func(rps http.ResponseWriter, rqs *http.Request){
+		switch rqs.Method {
+		case "PUT":
+			ID_Pekerjaan := rqs.URL.Query().Get("ID_Pekerjaan")
+			UpdateTanggalTenggat(rps,rqs,ID_Pekerjaan)
+		default:
+			http.Error(rps, "invalid", 405)
+		}
+	})
 	//Menampilkan pesan pada client bahwa web service dapat berjalan
 	log.Printf("Server starting on port %v\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v",port),nil))
