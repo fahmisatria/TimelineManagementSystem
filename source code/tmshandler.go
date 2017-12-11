@@ -147,4 +147,51 @@ func GetKejaranByTanggalTenggat(rps http.ResponseWriter, rqs *http.Request, Tang
 	}
 }
 
+//Fungsi Untuk melakukan POST Data Kejaran Divisi ke tabel memiliki
+func PostPekerjaan (rps http.ResponseWriter, rqs *http.Request) {
+	var pekerjaanbaru Pekerjaan
+	x := json.NewDecoder(rqs.Body)
+	err:= x.Decode(&pekerjaanbaru)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rqs.Body.Close()
+	//Membuka koneksi ke database "timelinemanagementsystem"
+	dbms, err := sql.Open("mysql",
+			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+	//Error Handling
+	if err != nil{
+		log.Fatal(err)
+	}
+	//Query untuk melakukan insert into tabel pekerjaan 
+	baris,err := dbms.Prepare("insert into pekerjaan (ID_Pekerjaan,Nama_Pekerjaan,Tanggal_Mulai,Tanggal_Selesai,Penanggung_Jawab) VALUES (?,?,?,?,?)")
+	if err != nil {
+		log.Fatal(err)
+	}
+	_,err = baris.Exec(pekerjaanbaru.ID_Pekerjaan, pekerjaanbaru.Nama_Pekerjaan, pekerjaanbaru.Tanggal_Mulai, pekerjaanbaru.Tanggal_Selesai, pekerjaanbaru.Penanggung_Jawab)
+}
+
+//Fungsi Untuk melakukan POST Data Memiliki Kejaran ke tabel memiliki
+func PostMemilikiPekerjaan (rps http.ResponseWriter, rqs *http.Request) {
+	var memilikipekerjaan MemilikiPekerjaan 
+	x := json.NewDecoder(rqs.Body)
+	err:= x.Decode(&memilikipekerjaan)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rqs.Body.Close()
+	//Membuka koneksi ke database "timelinemanagementsystem"
+	dbms, err := sql.Open("mysql",
+			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+	//Error Handling
+	if err != nil{
+		log.Fatal(err)
+	}
+	//Query untuk melakukan insert to tabel memiliki
+	baris,err := dbms.Prepare("insert into memiliki (ID_Divisi,ID_Pekerjaan,Nama_Divisi,Tanggal_Tenggat,Penanggung_Jawab,Deskripsi_Pekerjaan,Kontak) VALUES (?,?,?,?,?,?,?)")
+	if err != nil {
+		log.Fatal(err)
+	}
+	_,err = baris.Exec(memilikipekerjaan.ID_Divisi, memilikipekerjaan.ID_Pekerjaan, memilikipekerjaan.Nama_Divisi, memilikipekerjaan.Tanggal_Tenggat, memilikipekerjaan.Penanggung_Jawab,memilikipekerjaan.Deskripsi_Pekerjaan, memilikipekerjaan.Kontak)
+}
 

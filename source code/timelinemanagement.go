@@ -4,7 +4,7 @@
 // Deskripsi : File "timelinemanagement.go" berisi structure data yang dibutuhkan
 // untuk web service "timelinemanagementsystem"
 
-package main 
+package main
 
 //Struct Untuk Data Kejaran
 type DataKejaran struct {
@@ -16,14 +16,13 @@ type DataKejaran struct {
 	Kontak string
 }
 
-
 // Struct Untuk Data Kejaran berdasarkan divisi
 type DataKejaranByDivisi struct {
 	Nama_Divisi string
 	Nama_Pekerjaan string
 	Penanggung_Jawab string
 	Tanggal_Tenggat string
-	Kontak string 	
+	Kontak string
 }
 
 //Struct Untuk Data Kejaran berdasarkan penanggung jawab
@@ -45,6 +44,26 @@ type DataKejaranByTanggalTenggat struct {
 	Bidang string
 	Ketua_Bidang string
 	Tanggal_Mulai string
+	Kontak string
+}
+
+//Struct Untuk Tabel Pekerjaan
+type Pekerjaan struct {
+	ID_Pekerjaan string
+	Nama_Pekerjaan string
+	Tanggal_Mulai string
+	Tanggal_Selesai string
+	Penanggung_Jawab string
+}
+
+//Struct Untuk Tabel Memiliki
+type MemilikiPekerjaan struct {
+	ID_Divisi string
+	ID_Pekerjaan string
+	Nama_Divisi string
+	Tanggal_Tenggat string
+	Penanggung_Jawab string
+	Deskripsi_Pekerjaan string
 	Kontak string
 }
 
