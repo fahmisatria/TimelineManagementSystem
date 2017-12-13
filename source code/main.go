@@ -79,6 +79,16 @@ func main() {
 			http.Error(rps, "invalid", 405)
 		}
 	})
+	//Handle Function untuk melakukan method DELETE
+	http.HandleFunc("/deletekejaran/", func(rps http.ResponseWriter, rqs *http.Request){
+		switch rqs.Method {
+		case "DELETE":
+			ID_Pekerjaan := rqs.URL.Query().Get("ID_Pekerjaan")
+			DeleteKejaranByTanggalTenggat(rps,rqs,ID_Pekerjaan)
+		default:
+			http.Error(rps, "invalid", 405)
+		}
+	})
 	//Menampilkan pesan pada client bahwa web service dapat berjalan
 	log.Printf("Server starting on port %v\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v",port),nil))
