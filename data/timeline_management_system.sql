@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2017 at 05:22 PM
+-- Generation Time: Dec 13, 2017 at 07:18 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -80,51 +80,16 @@ INSERT INTO `divisi` (`ID_Divisi`, `Nama_Divisi`, `Ketua_Divisi`, `Bidang`, `Ket
 -- --------------------------------------------------------
 
 --
--- Table structure for table `memiliki`
---
-
-CREATE TABLE `memiliki` (
-  `ID_Divisi` varchar(6) NOT NULL,
-  `ID_Pekerjaan` varchar(7) NOT NULL,
-  `Nama_Divisi` varchar(50) NOT NULL,
-  `Tanggal_Tenggat` date NOT NULL,
-  `Penanggung_Jawab` varchar(50) NOT NULL,
-  `Deskripsi_Pekerjaan` text NOT NULL,
-  `Kontak` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `memiliki`
---
-
-INSERT INTO `memiliki` (`ID_Divisi`, `ID_Pekerjaan`, `Nama_Divisi`, `Tanggal_Tenggat`, `Penanggung_Jawab`, `Deskripsi_Pekerjaan`, `Kontak`) VALUES
-('MSD007', 'PKJ001', 'MSDM', '2018-01-31', 'Fahmi Satria Aji', 'Rapat Koordinasi Panitia', 'teemeezajee@gmail.com '),
-('SKR003', 'PKJ002', 'Sekretaris 1', '2017-12-21', 'Aliyah Sausan Huwel', 'Penyebaran Proposal ke Instansi Terkait', 'Sausanhuwel@gmail.com'),
-('SKJ002', 'PKJ003', 'Kesekjenan', '2017-12-17', 'Pratamamia Agung Prihatmaja', 'Follow Up Proposal', 'apratamamia@gmail.com'),
-('PBD028', 'PKJ004', 'Publikasi dan Dokumentasi', '2017-02-11', 'Aya Aurora Rimbamorani', 'Publikasi Media Sosial', 'aya.aurora25@gmail.com'),
-('SPS009', 'PKJ005', 'Sponsorship', '2017-12-16', 'Rizky Faramita', 'Follow Up Proposal Sponsor', 'rizky.faramitha@gmail.com'),
-('DLG014', 'PKJ006', 'Delegasi', '2017-12-19', 'Adya Naufal Fikri', 'Penyebaran Invitation Letter Delegasi', '13515130@std.stei.itb.ac.id'),
-('EXP032', 'PKJ007', 'Expo', '2017-12-21', 'Arief Septian Nurhada', 'Opening Registration Untuk Workshop', 'ariefseptian7@gmail.com'),
-('LMB021', 'PKJ008', 'Lomba', '2017-12-24', 'Muhammad Isham Azmansyah F', 'Opening Registration Lomba', 'i@adimaja.com'),
-('SMR031', 'PKJ009', 'Seminar', '2017-12-31', 'Teo Wijayarto', 'Opening Registration Seminar', '18215004@std.stei.itb.ac.id'),
-('CAM026', 'PKJ010', 'Marketing dan Creative', '2018-01-01', 'Joshua Atmadja', 'Release Teaser Arkavidia', 'joshuatmadja@gmail.com'),
-('DKR018', 'PKJ011', 'Dekorasi', '2018-01-12', 'Audry Nyonata', 'Dekorasi Pensuasanaan di ITB', 'audrynyonata@gmail.com'),
-('KTW001', 'PKJ012', 'Ketua ', '2018-01-17', 'Praditya Raudi', 'Technical Meeting dengan Instansti Terlibat', 'raudiradz@gmail.com'),
-('PEG033', 'PKJ013', 'Pre Event dan Gala Dinner', '2018-01-24', 'Adrian Hartanto Pramudita', 'Workshop Startup Camp', 'adrianhp100797@gmail.com'),
-('LMB021', 'PKJ014', 'Lomba', '2018-02-02', 'Muhammad Isham Azmansyah F', 'Pengumuman Finalis Lomba', 'i@adimaja.com'),
-('KTW001', 'PKJ015', 'Ketua ', '2018-02-09', 'Praditya Raudi', 'Show Time', 'raudiradz@gmail.com');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pekerjaan`
 --
 
 CREATE TABLE `pekerjaan` (
   `ID_Pekerjaan` varchar(10) NOT NULL,
+  `ID_Divisi` varchar(6) NOT NULL,
   `Nama_Pekerjaan` varchar(50) NOT NULL,
   `Tanggal_Mulai` date NOT NULL,
-  `Tanggal_Selesai` date NOT NULL,
+  `Tanggal_Tenggat` date NOT NULL,
+  `Deskripsi_Pekerjaan` text NOT NULL,
   `Penanggung_Jawab` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -132,22 +97,22 @@ CREATE TABLE `pekerjaan` (
 -- Dumping data for table `pekerjaan`
 --
 
-INSERT INTO `pekerjaan` (`ID_Pekerjaan`, `Nama_Pekerjaan`, `Tanggal_Mulai`, `Tanggal_Selesai`, `Penanggung_Jawab`) VALUES
-('PKJ001', 'Rapat Koordinasi Panitia', '2017-12-14', '2018-01-31', 'Fahmi Satria Aji'),
-('PKJ002', 'Penyebaran Proposal ke Instansi Terkait', '2017-12-14', '2017-12-21', 'Aliyah Sausan Huwel'),
-('PKJ003', 'Follow Up Proposal', '2017-12-14', '2017-12-17', 'Pratamamia Agung Prihatmaja'),
-('PKJ004', 'Publikasi Media Sosial', '2017-12-14', '2017-02-11', 'Aya Aurora Rimbamorani'),
-('PKJ005', 'Follow Up Proposal Sponsor', '2017-12-14', '2017-12-16', 'Rizky Faramita'),
-('PKJ006', 'Penyebaran Invitation Letter Delegasi', '2017-12-14', '2017-12-19', 'Adya Naufal Fikri'),
-('PKJ007', 'Opening Registration Untuk Workshop', '2017-12-14', '2017-12-21', 'Arief Septian Nurhada'),
-('PKJ008', 'Opening Registration Lomba', '2017-12-14', '2017-12-24', 'Muhammad Isham Azmansyah F'),
-('PKJ009', 'Opening Registration Seminar', '2017-12-14', '2017-12-31', 'Teo Wijayarto'),
-('PKJ010', 'Release Teaser Arkavidia', '2017-12-14', '2018-01-01', 'Joshua Atmadja'),
-('PKJ011', 'Dekorasi Pensuasanaan di ITB', '2017-12-14', '2018-01-12', 'Audry Nyonata'),
-('PKJ012', 'Technical Meeting dengan Instansti Terlibat', '2017-12-14', '2018-01-17', 'Praditya Raudi'),
-('PKJ013', 'Workshop Startup Camp', '2017-12-14', '2018-01-24', 'Adrian Hartanto Pramudita'),
-('PKJ014', 'Pengumuman Finalis Lomba', '2017-12-14', '2018-02-02', 'Muhammad Isham Azmansyah F'),
-('PKJ015', 'Show Time', '2017-12-14', '2018-02-09', 'Praditya Raudi');
+INSERT INTO `pekerjaan` (`ID_Pekerjaan`, `ID_Divisi`, `Nama_Pekerjaan`, `Tanggal_Mulai`, `Tanggal_Tenggat`, `Deskripsi_Pekerjaan`, `Penanggung_Jawab`) VALUES
+('PKJ001', 'MSD007', 'Rapat Koordinasi Panitia', '2017-12-14', '2018-01-31', 'Mengadakan Rapat Koordinasi Panitia Arkavidia', 'Fahmi Satria Aji'),
+('PKJ002', 'SKR003', 'Membuat Proposal Sponsor dan Expo', '2017-12-14', '2017-12-21', 'Membuat Proposal Untuk Disebarkan Ke Sponsor dan Expo', 'Aliyah Sausan Huwel'),
+('PKJ003', 'SKJ002', 'Follow Up Proposal', '2017-12-14', '2017-12-17', 'Menagih Sekretaris Proposal Yang Akan Disebarkan Ke Sponsor dan Expo', 'Pratamamia Agung Prihatmaja'),
+('PKJ004', 'PBD028', 'Publikasi Media Sosial', '2017-12-14', '2017-02-11', 'Melakukan Publikasi di Media Sosial Instagram, Twitter, Facebook', 'Aya Aurora Rimbamorani'),
+('PKJ005', 'SPS009', 'Follow Up Proposal Sponsor', '2017-12-14', '2017-12-16', 'Melakukan Follow Up Kepada Sponsor Yang Dituju', 'Rizky Faramita'),
+('PKJ006', 'DLG014', 'Penyebaran Invitation Letter Delegasi', '2017-12-14', '2017-12-19', 'Menyebarkan Invitation Letter ke Universitas atau Institusi Terkait', 'Adya Naufal Fikri'),
+('PKJ007', 'EXP032', 'Opening Registration Untuk Workshop', '2017-12-14', '2017-12-19', 'Membuka Registrasi Untuk  Peserta Workshop', 'Arief Septian Nurhada'),
+('PKJ008', 'LMB021', 'Opening Registration Lomba', '2017-12-14', '2017-12-24', 'Membuka Registrasi Untuk Peserta Lomba', 'Muhammad Isham Azmansyah F'),
+('PKJ009', 'SMR031', 'Opening Registration Seminar', '2017-12-14', '2017-12-31', 'Membuka Registrasi Untuk Peserta Seminar', 'Teo Wijayarto'),
+('PKJ010', 'CAM026', 'Release Teaser Arkavidia', '2017-12-14', '2018-01-01', 'Mempublikasi Teaser Arkavidia di Youtube', 'Joshua Atmadja'),
+('PKJ011', 'DKR018', 'Dekorasi Pensuasanaan di ITB', '2017-12-14', '2018-01-12', 'Mendekorasi Lingkungan ITB Untuk Pensuasanaan Arkavidia', 'Audry Nyonata'),
+('PKJ012', 'KTW001', 'Technical Meeting dengan Instansti Terlibat', '2017-12-14', '2018-01-17', 'Melakukan Technical Meeting dengan Instansi Terkait Arkavidia', 'Praditya Raudi'),
+('PKJ013', 'PEG033', 'Workshop Startup Camp', '2017-12-14', '2018-01-24', 'Hari H Acara Workshop Startup Camp', 'Adrian Hartanto Pramudita'),
+('PKJ014', 'LMB021', 'Pengumuman Finalis Lomba', '2017-12-14', '2018-02-02', 'Mengumumkan Finalis Yang Lolos ke Tahap Final ', 'Muhammad Isham Azmansyah F'),
+('PKJ015', 'KTW001', 'Show Time', '2017-12-14', '2018-02-09', 'Hari H Arkavidia 4.0', 'Praditya Raudi');
 
 --
 -- Indexes for dumped tables
@@ -160,17 +125,11 @@ ALTER TABLE `divisi`
   ADD PRIMARY KEY (`ID_Divisi`);
 
 --
--- Indexes for table `memiliki`
---
-ALTER TABLE `memiliki`
-  ADD KEY `ID_Divisi` (`ID_Divisi`),
-  ADD KEY `ID_Pekerjaan` (`ID_Pekerjaan`);
-
---
 -- Indexes for table `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  ADD PRIMARY KEY (`ID_Pekerjaan`);
+  ADD PRIMARY KEY (`ID_Pekerjaan`),
+  ADD KEY `ID_Divisi` (`ID_Divisi`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
