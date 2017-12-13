@@ -13,8 +13,9 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+//Main untuk menjalankan fungsionalitas web service 
 func main() {
-	port := 8181 //port yang digunakan untuk menjalankan web service
+	port := 7601 //port yang digunakan untuk menjalankan web service
 	// Handle Function untuk menjalankan fungsionalitas GETKejaranDivisi By Nama Divisi, Penanggung Jawab, dan Tanggal_Tenggat
 	http.HandleFunc("/timelinemanagementsystem/", func (rps http.ResponseWriter, rqs *http.Request) {
 		switch rqs.Method {
@@ -32,61 +33,41 @@ func main() {
 					GetKejaranByPenanggungJawab(rps,rqs,Penanggung_Jawab)
 					//Cek di bash
 					log.Printf("Masukan anda telah diterima, masukan:%s",Penanggung_Jawab)
-				//Mendapatkan Kejaran Divisi berdasarkan Tanggal Tenggat suatu pekerjaan
+				//Mendapatkan Kejaran Divisi berdasarkan tanggal_tenggat pekerjaan
 				}else if rqs.URL.Query().Get("Tanggal_Tenggat") != ""{
 					Tanggal_Tenggat := rqs.URL.Query().Get("Tanggal_Tenggat")
 					GetKejaranByTanggalTenggat(rps,rqs,Tanggal_Tenggat)
 					//Cek di bash
 					log.Printf("Masukan anda telah diterima, masukan:%s", Tanggal_Tenggat)
-				//Mendapatkan Seluruh Kejaran Divisi
+				//Mendapatkan Kejaran Divisi berdasarkan pekerjaan divisi
+				}else if rqs.URL.Query().Get("Nama_Pekerjaan") != "" {
+					Nama_Pekerjaan := rqs.URL.Query().Get("Nama_Pekerjaan") 
+					GetKejaranByPekerjaan(rps,rqs,Nama_Pekerjaan)
+					//Cek di bash
+					log.Printf("Masukan anda telah diterima, masukan:%s",Nama_Pekerjaan)
+				//Mendapatkan seluruh data kejaran divisi apabila masukan get klien tanpa syarat apapun/kosong
 				}else {
 					GetAllKejaran(rps,rqs)
 					log.Printf("Berhasil")
 				}
-				//Membuat data kejaran baru pada tabel memiliki 
-			default:
-				http.Error(rps, "invalid", 405) //mengirimkan respons error
-
-		}
-	})
-	//Handle Function untuk melakukan POSTPekerjaan
-	http.HandleFunc("/postpekerjaan/", func (rps http.ResponseWriter, rqs *http.Request) {
-		switch rqs.Method {
+			//Method POST
 			case "POST":
-				//POST Pekerjaan To Tabel Pekerjaan
+				//Memasukkan Data Kejaran Ke Tabel Pekerjaan
 				PostPekerjaan(rps,rqs)
-		default:
-			http.Error(rps, "invalid", 405) //mengirimkan respons error
-		}
-	})
-	//Handle Function untuk melakukan POSTDivisiMemilikiPekerjaan
-	http.HandleFunc("/postmemilikipekerjaan/", func (rps http.ResponseWriter, rqs *http.Request) {
-		switch rqs.Method {
-			case "POST":
-				//POST Pekerjaan To Tabel Pekerjaan
-				PostMemilikiPekerjaan(rps,rqs)
-		default:
-			http.Error(rps, "invalid", 405) //mengirimkan respons error
-		}
-	})
-	//Handle Function untuk melakukan method PUT 
-	http.HandleFunc("/updatetanggaltenggat/", func(rps http.ResponseWriter, rqs *http.Request){
-		switch rqs.Method {
-		case "PUT":
-			ID_Pekerjaan := rqs.URL.Query().Get("ID_Pekerjaan")
-			UpdateTanggalTenggat(rps,rqs,ID_Pekerjaan)
-		default:
-			http.Error(rps, "invalid", 405)
-		}
-	})
-	//Handle Function untuk melakukan method DELETE
-	http.HandleFunc("/deletekejaran/", func(rps http.ResponseWriter, rqs *http.Request){
-		switch rqs.Method {
-		case "DELETE":
-			ID_Pekerjaan := rqs.URL.Query().Get("ID_Pekerjaan")
-			DeleteKejaranByTanggalTenggat(rps,rqs,ID_Pekerjaan)
-		default:
-			http.Error(rps, "invalid", 405)
+			//Method PUT
+			case "PUT":
+				//Update Tanggal Tenggat di Tabel Pekerjaan
+				ID_Pekerjaan := rqs.URL.Query().Get("ID_Pekerjaan")
+				UpdateTabelPekerjaan(rps,rqs,ID_Pekerjaan)
+			//Method DELETE
+			case "DELETE":
+				ID_Pekerjaan := rqs.URL.Query().Get("ID_Pekerjaan")
+				DeleteKejaranDivisi(rps,rqs,ID_Pekerjaan)
+				//Delete Kejaran Divisi Berdasarkan ID_Pekerjaan
+			default:
+				http.Error(rps, "method request tidak valid", 405) //mengirimkan respons error
+			//Method PUT
+
 		}
 	})
 	//Menampilkan pesan pada client bahwa web service dapat berjalan
