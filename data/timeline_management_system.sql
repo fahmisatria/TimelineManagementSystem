@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 07:18 AM
+-- Generation Time: Dec 13, 2017 at 05:57 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -35,14 +35,14 @@ CREATE TABLE `divisi` (
   `Bidang` varchar(40) NOT NULL,
   `Ketua_Bidang` varchar(40) NOT NULL,
   `Deskripsi_Divisi` text NOT NULL,
-  `E-mail_Ketua_Divisi` text NOT NULL
+  `Email_Ketua_Divisi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `divisi`
 --
 
-INSERT INTO `divisi` (`ID_Divisi`, `Nama_Divisi`, `Ketua_Divisi`, `Bidang`, `Ketua_Bidang`, `Deskripsi_Divisi`, `E-mail_Ketua_Divisi`) VALUES
+INSERT INTO `divisi` (`ID_Divisi`, `Nama_Divisi`, `Ketua_Divisi`, `Bidang`, `Ketua_Bidang`, `Deskripsi_Divisi`, `Email_Ketua_Divisi`) VALUES
 ('ACR030', 'Acara', 'Rezha Kusuma A', 'Acara', 'Rezha Kusuma A', 'Ketua Bidang Acara ', 'rezha.kusuma@gmail.com'),
 ('AKT020', 'Akomtrans', 'Irene Edria Devina', 'Operasional', 'Alif Bhaskoro', 'Akomtrans Arkavidia', 'ireneedriadr@gmail.com'),
 ('BND005', 'Bendahara 1', 'Tessa Angela', 'Kesekjenan', 'Pratamamia Agung Prihatmaja', 'Bendahara 1 Acara Arkavidia', 'emmanuellatessaangela@gmail.com'),
@@ -112,7 +112,8 @@ INSERT INTO `pekerjaan` (`ID_Pekerjaan`, `ID_Divisi`, `Nama_Pekerjaan`, `Tanggal
 ('PKJ012', 'KTW001', 'Technical Meeting dengan Instansti Terlibat', '2017-12-14', '2018-01-17', 'Melakukan Technical Meeting dengan Instansi Terkait Arkavidia', 'Praditya Raudi'),
 ('PKJ013', 'PEG033', 'Workshop Startup Camp', '2017-12-14', '2018-01-24', 'Hari H Acara Workshop Startup Camp', 'Adrian Hartanto Pramudita'),
 ('PKJ014', 'LMB021', 'Pengumuman Finalis Lomba', '2017-12-14', '2018-02-02', 'Mengumumkan Finalis Yang Lolos ke Tahap Final ', 'Muhammad Isham Azmansyah F'),
-('PKJ015', 'KTW001', 'Show Time', '2017-12-14', '2018-02-09', 'Hari H Arkavidia 4.0', 'Praditya Raudi');
+('PKJ015', 'KTW001', 'Show Time', '2017-12-14', '2018-02-09', 'Hari H Arkavidia 4.0', 'Praditya Raudi'),
+('PKJ016', 'MSD007', 'Pembayaran Kaos Panitia Arkavidia', '2017-11-27', '2018-02-14', 'Menghimpun uang kaos panitia arkavidia 4.0', 'Fahmi Satria Aji');
 
 --
 -- Indexes for dumped tables
