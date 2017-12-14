@@ -18,7 +18,7 @@ import (
 func GetAllKejaran(rps http.ResponseWriter, rqs *http.Request) {
 	//Membuka koneksi ke database "timeline_management_system"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -52,7 +52,7 @@ func GetAllKejaran(rps http.ResponseWriter, rqs *http.Request) {
 func GetKejaranByNamaDivisi(rps http.ResponseWriter, rqs *http.Request, Nama_Divisi string) {
 	//Membuka koneksi ke database "timeline_management_system"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -85,7 +85,7 @@ func GetKejaranByNamaDivisi(rps http.ResponseWriter, rqs *http.Request, Nama_Div
 func GetKejaranByPenanggungJawab(rps http.ResponseWriter, rqs *http.Request, Penanggung_Jawab string) {
 	//Membuka koneksi ke database "timeline_management_system"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -119,7 +119,7 @@ func GetKejaranByPenanggungJawab(rps http.ResponseWriter, rqs *http.Request, Pen
 func GetKejaranByTanggalTenggat(rps http.ResponseWriter, rqs *http.Request, Tanggal_Tenggat string) {
 	//Membuka koneksi ke database "timeline_management_system"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -153,7 +153,7 @@ func GetKejaranByTanggalTenggat(rps http.ResponseWriter, rqs *http.Request, Tang
 func GetKejaranByPekerjaan(rps http.ResponseWriter, rqs *http.Request, Nama_Pekerjaan string) {
 	//Membuka koneksi ke database "timeline_management_system"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)
@@ -193,7 +193,7 @@ func PostPekerjaan (rps http.ResponseWriter, rqs *http.Request) {
 	defer rqs.Body.Close()
 	//Membuka koneksi ke database "timelinemanagementsystem"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil{
 		log.Fatal(err)
@@ -218,7 +218,7 @@ func UpdateTabelPekerjaan(rps http.ResponseWriter, rqs *http.Request, ID_Pekerja
 	defer rqs.Body.Close()
 	//Membuka koneksi ke database "timelinemanagementsystem"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil{
 		log.Fatal(err)
@@ -237,7 +237,7 @@ func DeleteKejaranDivisi(rps http.ResponseWriter, rqs *http.Request, ID_Pekerjaa
 	memilikipekerjaan := ID_Pekerjaan
 	//Membuka koneksi ke database "timelinemanagementsystem"
 	dbms, err := sql.Open("mysql",
-			  "root:@tcp(127.0.0.1:3306)/timeline_management_system")
+			  "root:@tcp(167.205.67.251:3306)/project_timeline_management_system")
 	//Error Handling
 	if err != nil {
 		log.Fatal(err)

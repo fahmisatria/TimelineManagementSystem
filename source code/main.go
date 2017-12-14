@@ -17,7 +17,7 @@ import (
 func main() {
 	port := 7601 //port yang digunakan untuk menjalankan web service
 	// Handle Function untuk menjalankan fungsionalitas GETKejaranDivisi By Nama Divisi, Penanggung Jawab, dan Tanggal_Tenggat
-	http.HandleFunc("/timelinemanagementsystem/", func (rps http.ResponseWriter, rqs *http.Request) {
+	http.HandleFunc("/projecttimelinemanagementsystem/", func (rps http.ResponseWriter, rqs *http.Request) {
 		switch rqs.Method {
 			//Method GET
 			case "GET":
